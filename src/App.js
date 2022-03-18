@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import useCountUsingReducer from "./useCountUsingReducer";
+import useCount from "./useCount";
 
-function App() {
+export default function App() {
+  const { count, inc, dec, incBy } = useCount(1000);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>count {count}</div>
+      <button onClick={inc}>inc</button>
+      <button onClick={dec}>dec</button>
+      <button onClick={() => incBy(300)}>inc by</button>
     </div>
   );
 }
-
-export default App;
